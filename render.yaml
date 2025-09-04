@@ -1,0 +1,12 @@
+services:
+  - type: web
+    runtime: node
+    name: proxy-to-supabase-cloud
+    plan: free
+    region: singapore
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
