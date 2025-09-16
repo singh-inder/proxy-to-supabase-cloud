@@ -26,7 +26,6 @@ for (const path of paths) {
 
 // This route is used by an external cron job to keep the server instance alive on hosting platforms like Render
 // Free tier may goes to sleep after 15 min of inactivity
-
 server.get("/proxy-status", async (request, reply) => {
   return { status: "ok", service: "supabase-proxy" };
 });
