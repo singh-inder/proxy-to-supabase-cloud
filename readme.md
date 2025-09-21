@@ -1,5 +1,11 @@
 ## Proxy to Supabase Cloud (Fastify)
 
+### ⚠ Update – Supabase Domain Accessible Again
+
+As of Sep 20, 2025, the official `*.supabase.co` domain is accessible again in the UAE. This proxy is **no longer required**. This proxy was created as a temporary workaround during the outage, and is preserved here for reference.
+
+---
+
 Minimal Fastify reverse proxy that lets your app talk to Supabase through an alternate domain. Useful if the direct `*.supabase.co` domain is blocked (eg. current Etisalat network restrictions in the UAE – incident: https://status.supabase.com/incidents/spyxwjqn7d2f).
 
 > Experimental: intended as a quick workaround. Hardens nothing, just forwards traffic.
