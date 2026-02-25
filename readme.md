@@ -1,13 +1,8 @@
 ## Proxy to Supabase Cloud (Fastify)
 
-### ⚠ Update – Supabase Domain Accessible Again
+Minimal Fastify reverse proxy that lets your app talk to Supabase through an alternate domain.
 
-As of Sep 20, 2025, the official `*.supabase.co` domain is accessible again in the UAE. This proxy is **no longer required**. This proxy was created as a temporary workaround during the outage, and is preserved here for reference.
-
----
-
-Minimal Fastify reverse proxy that lets your app talk to Supabase through an alternate domain. Useful if the direct `*.supabase.co` domain is blocked (eg. current Etisalat network restrictions in the UAE – incident: https://status.supabase.com/incidents/spyxwjqn7d2f).
-
+> [!NOTE]
 > Experimental: intended as a quick workaround. Hardens nothing, just forwards traffic.
 
 ### What it does
@@ -64,20 +59,14 @@ const { data, error } = await supabase.from("todos").select("*");
 
 ### Limitations / Considerations
 
-- No auth or rate limiting layer added – add one if you expose this publicly.
 - Does not modify CORS; Fastify CORS is set to `origin: true` (reflect request origin). Adjust if you need stricter rules.
 - Not a security boundary; treat it as a simple pipe.
 
 ### Optional Hardening Ideas (not included)
 
 - Add an allowlist of origins
-- Add basic auth or API key at the proxy
 - Add request rate limiting / logging / metrics
 
 ### License
 
 MIT
-
-### Motivation
-
-Created to help project owners in the UAE temporarily route around ISP blocking of Supabase domains. Use responsibly and respect local laws.
