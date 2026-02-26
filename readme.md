@@ -12,13 +12,13 @@ Minimal reverse proxy that lets your app talk to Supabase through an alternate d
 Proxies only the standard Supabase service paths:
 `/rest/v1`, `/auth/v1`, `/realtime/v1` (WebSocket), `/functions/v1`, `/storage/v1`
 
-All headers (including your anon/service keys) pass through unchanged. No caching, no rate limiting, no key rotation.
+All headers (including your anon/service keys) pass through unchanged. No caching, no rate limiting.
 
-### Quick Deploy (Render example)
+### Quick Deploy (Render example - free plan)
 
 1. Fork or clone this repo.
 2. Create a new Web Service in Render (Node runtime).
-3. Set the region near your Supabase project (Singapore if you're in UAE). See screenshot below.
+3. Set the region near your Supabase project (Singapore if you're in India). See screenshot below.
 4. Add the required env var `SUPABASE_URL` (the original Supabase project URL, e.g. `https://xyzcompany.supabase.co`).
 5. Deploy. Render will assign you a new domain like `https://your-proxy.onrender.com`.
 6. Point your client SDK to the proxy domain instead of the direct Supabase URL.
@@ -55,13 +55,9 @@ const { data, error } = await supabase.from("todos").select("*");
 
   ![env](screenshots/env.png)
 
-### WebSocket (Realtime)
-
-`/realtime/v1` is registered with `websocket: true`, so Supabase realtime should function normally through the proxy.
-
 ### Limitations / Considerations
 
-- OAuth will not work.
+- OAuth might not work.
 - Does not modify CORS; Fastify CORS is set to `origin: true` (reflect request origin). Adjust if you need stricter rules.
 - Not a security boundary; treat it as a simple pipe.
 
