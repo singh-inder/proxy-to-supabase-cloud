@@ -3,7 +3,9 @@
 Minimal reverse proxy that lets your app talk to Supabase through an alternate domain. Deploy anywhere Node.js runs or containerize with Docker.
 
 > [!NOTE]
-> Experimental: intended as a quick workaround. Hardens nothing, just forwards traffic.
+> If you're on the Supabase Pro plan and have a custom domain, you can move your domain's DNS to Cloudflare and enable proxying.
+> See [Adding existing domain to Cloudflare](https://developers.cloudflare.com/fundamentals/manage-domains/add-site/) and [Cloudflare Proxy Status guide](https://developers.cloudflare.com/dns/proxy-status/).
+> Use this project if you need a free and simple workaround that just forwards traffic.
 
 ### What it does
 
@@ -59,6 +61,7 @@ const { data, error } = await supabase.from("todos").select("*");
 
 ### Limitations / Considerations
 
+- OAuth will not work.
 - Does not modify CORS; Fastify CORS is set to `origin: true` (reflect request origin). Adjust if you need stricter rules.
 - Not a security boundary; treat it as a simple pipe.
 
