@@ -1,6 +1,6 @@
-## Proxy to Supabase Cloud (Fastify)
+## Proxy to Supabase Cloud
 
-Minimal Fastify reverse proxy that lets your app talk to Supabase through an alternate domain. Deploy anywhere Node.js runs or containerize with Docker. 
+Minimal reverse proxy that lets your app talk to Supabase through an alternate domain. Deploy anywhere Node.js runs or containerize with Docker.
 
 > [!NOTE]
 > Experimental: intended as a quick workaround. Hardens nothing, just forwards traffic.
